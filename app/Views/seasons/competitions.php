@@ -7,11 +7,13 @@
     <?php else: ?>
         <ul class="list-group">
             <?php foreach ($competitions as $competition): ?>
-                <li class="list-group-item d-flex align-items-center">
-                    <?php if (!empty($competition->logo)): ?>
-                        <img src="<?= base_url('obrazky/league/' . $competition->logo) ?>" alt="<?= esc($competition->name) ?>" style="height:32px;width:auto;margin-right:10px;">
-                    <?php endif; ?>
-                    <strong><?= esc($competition->name) ?></strong>
+                <li class="list-group-item">
+                    <span class="me-2">
+                        <?php if (!empty($competition->logo)): ?>
+                            <img src="<?= base_url('obrazky/league/' . $competition->logo) ?>" alt="<?= esc($competition->name) ?>" style="height:32px;width:auto;margin-right:10px;">
+                        <?php endif; ?>
+                        <strong><?= esc($competition->name) ?></strong>
+                    </span>
                     <span class="ms-2 text-muted">(úroveň: <?= esc($competition->level) ?>)</span>
                 </li>
             <?php endforeach; ?>

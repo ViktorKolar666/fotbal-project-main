@@ -9,7 +9,8 @@
                     <div class="card h-100 shadow-sm">
                         <div class="card-body d-flex flex-column justify-content-between">
                             <h5 class="card-title">Sezóna <?= esc($season->start) ?>/<?= esc($season->finish) ?></h5>
-                            <a href="<?= site_url('season/' . $season->id) ?>" class="btn btn-primary mt-2">Detail sezóny</a>
+                            <a href="<?= site_url('season/' . $season->id . '/games') ?>" class="btn btn-primary mt-2">Zobrazit zápasy</a>
+                            <a href="<?= site_url('season/' . $season->id) ?>" class="btn btn-outline-secondary mt-2">Detail sezóny</a>
                         </div>
                     </div>
                 </div>
