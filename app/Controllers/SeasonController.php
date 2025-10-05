@@ -11,18 +11,16 @@ use CodeIgniter\Controller;
 class SeasonController extends Controller
 {
     public function index()
-        {
-            $seasonModel = new SeasonModel();
-            $perPage = 25;
-            $page = (int)($this->request->getGet('page') ?? 1);
-            $total = $seasonModel->countAll();
-            $seasons = $seasonModel->orderBy('start', 'DESC')->paginate($perPage, 'seasons', $page);
-            $pager = $seasonModel->pager;
-            return view('seasons/index', [
-                'seasons' => $seasons,
-                'pager' => $pager
-            ]);
-        }
+    {
+        $seasonModel = new SeasonModel();
+        $perPage = 25;
+        $seasons = $seasonModel->orderBy('start', 'DESC')->paginate($perPage, 'seasons');
+        $pager = $seasonModel->pager;
+        return view('seasons/index', [
+            'seasons' => $seasons,
+            'pager' => $pager
+        ]);
+    }
 
     public function competitions($seasonId)
     {
