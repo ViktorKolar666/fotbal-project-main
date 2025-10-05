@@ -5,19 +5,28 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= site_url('article') ?>">Články</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= site_url('season') ?>">Sezóny</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= site_url('article') ?>">Články</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= site_url('season') ?>">Sezóny</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <?php if (session()->get('isAdmin')): ?>
                     <li class="nav-item">
                         <a class="nav-link" href="<?= site_url('admin') ?>">Administrace</a>
                     </li>
-                </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= site_url('admin/logout') ?>">Odhlásit</a>
+                    </li>
+                <?php else: ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= site_url('admin/login') ?>">Přihlášení</a>
+                    </li>
+                <?php endif; ?>
+            </ul>
         </div>
     </div>
 </nav>

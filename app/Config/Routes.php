@@ -22,3 +22,6 @@ $routes->post('admin/update/(:num)', 'AdminController::update/$1');
 $routes->get('admin/delete/(:num)', 'AdminController::delete/$1');
 $routes->post('admin/toggle-published', 'AdminController::togglePublished');
 $routes->post('admin/toggle-top', 'AdminController::toggleTop');
+$routes->get('admin/login', 'AdminController::login');
+$routes->post('admin/login', 'AdminController::doLogin');
+$routes->get('admin/logout', 'AdminController::logout');
