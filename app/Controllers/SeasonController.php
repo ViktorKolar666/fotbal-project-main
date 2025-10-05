@@ -180,7 +180,17 @@ class SeasonController extends Controller
 
     public function team($teamId)
     {
-        // Prázdná stránka týmu (ne 404)
-        return view('seasons/team', ['teamId' => $teamId]);
+        $teamModel = new \App\Models\TeamModel();
+        $team = $teamModel->find($teamId);
+
+        if (!$team) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+
+        return view('seasons/team', [
+            'teamId' => $team->id,
+            'teamName' => $team->name,
+            'teamLogo' => $team->logo ?? null,
+        ]);
     }
 }
